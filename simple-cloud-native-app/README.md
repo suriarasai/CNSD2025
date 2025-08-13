@@ -103,7 +103,15 @@ A popular commercial platform for searching, monitoring, and analyzing machine-g
 These are commercial, cloud-based monitoring and security platforms that offer advanced log management features, including collection, analysis, and alerting.
 
 ### Enabling Logger Service for Backend
-For maintainability, we create a new file named backend/logger.js to configure Winston. This allows us to manage logging setup from a single location. We will then proceed to change the usual console prints to use logger instead. (In JS case its is console.out, for Java it would be stdout etc). Add appropriate ignote statement to gitignore settings. 
+For maintainability, we create a new file named backend/logger.js to configure Winston. This allows us to manage logging setup from a single location. 
+
+We will then proceed to change the usual console prints to use logger instead. (In JS case its is console.out, for Java it would be stdout etc). Add appropriate ignote statement to gitignore settings. 
+
+To view the logs for the running backend container (in real time using -f ), use the following command:
+```bash
+podman logs -f backend-service-container
+```
+[Note - if logger doesnot work, you may need to use npm build or npm install winston as necessary.]
 
 ## Contributing
 
