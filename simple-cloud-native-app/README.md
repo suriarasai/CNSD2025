@@ -57,7 +57,7 @@ simple-cloud-native-app/
 *   **Frontend:** React, Vite, Nginx (for serving static files in Docker)
 *   **Backend:** Node.js, Express.js
 *   **Database:** MongoDB
-*   **Containerization:** Docker, Docker Compose
+*   **Containerization:** Podman, Podman compose
 
 ## Stopping the Application
 
@@ -72,6 +72,38 @@ To stop and remove volumes (e.g., to clear MongoDB data):
 ```bash
 docker-compose down -v
 ```
+
+## Application level logs
+
+### 1. Log Aggregation Platforms
+These platforms are designed to collect, process, and analyze logs from various sources, including containers. They are the most common solution for centralized logging in a containerized environment.
+
+#### 1. Fluentd & Fluent Bit
+These are open-source data collectors that are part of the Cloud Native Computing Foundation (CNCF). They can gather logs from running containers and forward them to a wide array of destinations. Fluent Bit is a lightweight version, making it ideal for running as a sidecar or on an edge device.
+
+#### 2. Logstash (part of the ELK/Elastic Stack)
+A powerful, server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to a "stash" like Elasticsearch.
+
+#### 3. Promtail (part of the Loki Stack)
+Promtail is the agent responsible for collecting logs and sending them to a Grafana Loki instance. This stack is optimized for cost-effective storage and easy integration with Prometheus metrics.
+
+### 2. Logging Backends & Analytics Services
+These are often managed (SaaS) or self-hosted services that provide the storage, search, and visualization capabilities for your logs.
+
+#### 1.Elasticsearch
+An open-source, distributed search and analytics engine. It's commonly paired with Logstash and Kibana (the ELK stack) for a complete log management solution.
+
+#### 2.Grafana Loki
+An open-source, multi-tenant log aggregation system inspired by Prometheus. It’s designed to be cost-effective and easy to operate.
+
+#### 3.Splunk
+A popular commercial platform for searching, monitoring, and analyzing machine-generated data.
+
+#### 4.Datadog, New Relic, Logz.io
+These are commercial, cloud-based monitoring and security platforms that offer advanced log management features, including collection, analysis, and alerting.
+
+### Enabling Logger Service for Backend
+For maintainability, we create a new file named backend/logger.js to configure Winston. This allows us to manage logging setup from a single location. We will then proceed to change the usual console prints to use logger instead. (In JS case its is console.out, for Java it would be stdout etc). Add appropriate ignote statement to gitignore settings. 
 
 ## Contributing
 
