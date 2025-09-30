@@ -2,7 +2,6 @@
 
 ## Project Structure
 
-```
 travel-booking-app/
 ├── frontend/
 │   ├── src/
@@ -48,3 +47,8 @@ travel-booking-app/
 ├── make.bat
 └── README.md
 ```
+
+
+
+
+End of file.
