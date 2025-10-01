@@ -4,8 +4,8 @@ This is a simple fullstack application built with a cloud-native approach, using
 
 ## Prerequisites
 
-- Docker
-- Docker Compose
+- Podman 
+- Podman Compose
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ This is a simple fullstack application built with a cloud-native approach, using
     ```
 3.  **Build and run the application using Docker Compose:**
     ```bash
-    docker-compose up -d --build
+    podman compose up -d --build
     ```
     This command will:
     *   Build the Docker images for the frontend and backend services.
@@ -64,13 +64,13 @@ simple-cloud-native-app/
 To stop all running containers, navigate to the project root directory and run:
 
 ```bash
-docker-compose down
+podman compose down
 ```
 
 To stop and remove volumes (e.g., to clear MongoDB data):
 
 ```bash
-docker-compose down -v
+podman compose down -v
 ```
 
 ## Application level logs
